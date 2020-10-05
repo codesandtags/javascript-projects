@@ -1,3 +1,9 @@
+const quoteContainer = document.getElementById("quote-container");
+const quoteText = quoteContainer.getElementById("quote");
+const authorText = quoteContainer.getElementById("author");
+const twitterButton = quoteContainer.getElementById("twitter");
+const newQuoteButton = quoteContainer.getElementById("new-quote");
+
 // http://forismatic.com/en/api
 // GET Quote from API
 const getQuote = async () => {
@@ -11,6 +17,9 @@ const getQuote = async () => {
       },
     });
     const quote = await response.json();
+
+    authorText.innerText = data.quoteAuthor;
+    quoteText.innerText = data.quoteText;
     debugger;
   } catch (error) {
     debugger;
