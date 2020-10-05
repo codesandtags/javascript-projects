@@ -3,6 +3,19 @@ const quoteText = document.querySelector("#quote");
 const authorText = document.querySelector("#author");
 const twitterButton = document.querySelector("#twitter");
 const newQuoteButton = document.querySelector("#new-quote");
+const loaderSelector = document.querySelector("#loader");
+
+const loading = () => {
+  loaderSelector.hidden = false;
+  quoteContainer.hidden = true;
+};
+
+const complete = () => {
+  if (!loaderSelector.hidden) {
+    loaderSelector.hidden = true;
+    quoteContainer.hidden = false;
+  }
+};
 
 const getAuthor = (author) => {
   return author === "" ? "- Unknown" : `- ${author}`;
@@ -25,6 +38,7 @@ const getQuote = async () => {
   const headers = {
     origin: "x-requested-with",
   };
+  loading();
 
   try {
     const response = await fetch(`${proxyURL}${apiURL}`, {
@@ -35,6 +49,7 @@ const getQuote = async () => {
     authorText.innerText = getAuthor(data.quoteAuthor);
     quoteText.innerText = data.quoteText;
     validateQuoteTextStyle(data.quoteText, quoteText);
+    complete();
   } catch (error) {
     debugger;
     setTimeout(() => {
@@ -47,7 +62,7 @@ const getQuote = async () => {
 const twiteetQuote = () => {
   const quote = quoteText.innerText;
   const author = authorText.innerText;
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} ${author}`;
 
   window.open(twitterUrl, "_blank");
 };
