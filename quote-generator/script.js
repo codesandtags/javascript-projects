@@ -18,8 +18,8 @@ const getQuote = async () => {
     });
     const quote = await response.json();
 
-    authorText.innerText = data.quoteAuthor;
-    quoteText.innerText = data.quoteText;
+    authorText.innerText = quote.quoteAuthor;
+    quoteText.innerText = quote.quoteText;
   } catch (error) {
     debugger;
     console.error("Upss, there is an error here ", error);
