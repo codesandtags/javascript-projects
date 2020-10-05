@@ -20,10 +20,13 @@ const getQuote = async () => {
 
     authorText.innerText = data.quoteAuthor;
     quoteText.innerText = data.quoteText;
-    debugger;
   } catch (error) {
     debugger;
+    console.error("Upss, there is an error here ", error);
   }
 };
+
+// Listeners
+newQuoteButton.addEventListener("click", getQuote);
 
 getQuote();
