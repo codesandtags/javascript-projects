@@ -1,8 +1,8 @@
-const quoteContainer = document.getElementById("quote-container");
-const quoteText = document.getElementById("quote");
-const authorText = document.getElementById("author");
-const twitterButton = document.getElementById("twitter");
-const newQuoteButton = document.getElementById("new-quote");
+const quoteContainer = document.querySelector("#quote-container");
+const quoteText = document.querySelector("#quote");
+const authorText = document.querySelector("#author");
+const twitterButton = document.querySelector("#twitter");
+const newQuoteButton = document.querySelector("#new-quote");
 
 // http://forismatic.com/en/api
 // GET Quote from API
