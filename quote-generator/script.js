@@ -5,12 +5,15 @@ const twitterButton = document.querySelector("#twitter");
 const newQuoteButton = document.querySelector("#new-quote");
 const loaderSelector = document.querySelector("#loader");
 
-const loading = () => {
+const MAX_RETRIES = 3;
+let retries = 0;
+
+const showLoadingSpinner = () => {
   loaderSelector.hidden = false;
   quoteContainer.hidden = true;
 };
 
-const complete = () => {
+const hideLoadingSpinner = () => {
   if (!loaderSelector.hidden) {
     loaderSelector.hidden = true;
     quoteContainer.hidden = false;
@@ -31,14 +34,14 @@ const validateQuoteTextStyle = (quote, quoteTextSelector) => {
 
 // http://forismatic.com/en/api
 // GET Quote from API
-const getQuote = async () => {
+const getQuoteFromAPI = async () => {
   const proxyURL = "https://cors-anywhere.herokuapp.com/";
   const apiURL =
     "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
   const headers = {
     origin: "x-requested-with",
   };
-  loading();
+  showLoadingSpinner();
 
   try {
     const response = await fetch(`${proxyURL}${apiURL}`, {
@@ -49,13 +52,11 @@ const getQuote = async () => {
     authorText.innerText = getAuthor(data.quoteAuthor);
     quoteText.innerText = data.quoteText;
     validateQuoteTextStyle(data.quoteText, quoteText);
-    complete();
+    hideLoadingSpinner();
   } catch (error) {
-    debugger;
-    setTimeout(() => {
-      getQuote();
-    }, 1000);
-    console.error("Upss, there is an error here ", error);
+    if (retries < MAX_RETRIES) {
+      getQuoteFromAPI();
+    }
   }
 };
 
@@ -71,4 +72,4 @@ const twiteetQuote = () => {
 newQuoteButton.addEventListener("click", getQuote);
 twitterButton.addEventListener("click", twiteetQuote);
 
-getQuote();
+getQuoteFromAPI();

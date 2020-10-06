@@ -120,6 +120,9 @@ button:active {
   }
 }
 
+/**
+ * Github Corner
+ **/
 .github-corner {
   border: 0px solid red;
   display: block;
