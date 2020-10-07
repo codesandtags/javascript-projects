@@ -69,7 +69,7 @@ const twiteetQuote = () => {
 };
 
 // Listeners
-newQuoteButton.addEventListener("click", getQuote);
+newQuoteButton.addEventListener("click", getQuoteFromAPI);
 twitterButton.addEventListener("click", twiteetQuote);
 
 getQuoteFromAPI();
