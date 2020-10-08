@@ -33,7 +33,12 @@ const displayPhotos = (photos) => {
 
     const figure = document.createElement("figure");
     const figureCaption = document.createElement("figcaption");
-    figureCaption.innerText = `Taken by ${photo.user.name}, ${photo.user.location}`;
+    const photographer = document.createElement("span");
+    const location = document.createElement("span");
+    photographer.innerText = `Taken by ${photo.user.name}`;
+    location.innerText = photo.user.location;
+    figureCaption.appendChild(photographer);
+    figureCaption.appendChild(location);
 
     const img = document.createElement("img");
     setAttributes(img, {
