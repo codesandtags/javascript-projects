@@ -4,7 +4,7 @@ const loader = document.querySelector("#loader");
 let photos = [];
 
 // Unsplash
-const countPhotos = 10;
+const countPhotos = 20;
 const apiKey = "kBpLwmdcwAQI6-Vpn5sa3txgftFB7TrPCAG7tVtIjC0";
 const UNSPLASH_URL = `https://api.unsplash.com/photos/random/?count=${countPhotos}&client_id=${apiKey}&orientation=landscape`;
 
