@@ -18,6 +18,7 @@ h1 {
   font-size: 40px;
   letter-spacing: 5px;
   color: purple;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 a {
@@ -59,10 +60,14 @@ a {
   transition: 0.3s all ease-in;
   cursor: pointer;
   margin: 0;
+}
+
+.image-container a:nth-child(2n) figure {
   filter: grayscale(100%);
 }
 
-.image-container figure:hover {
+.image-container figure:hover,
+.image-container a:nth-child(2n) figure:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   transform: scale(1.05);
   filter: none;
@@ -83,10 +88,12 @@ a {
 
 .image-container img {
   width: 100%;
+  min-width: 350px;
+  min-height: 300px;
   height: 90%;
   max-height: 350px;
-  min-height: 200px;
   object-fit: cover;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 600px) {
