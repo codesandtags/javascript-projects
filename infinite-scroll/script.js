@@ -6,7 +6,7 @@ let photos = [];
 // Unsplash
 const countPhotos = 20;
 const apiKey = "kBpLwmdcwAQI6-Vpn5sa3txgftFB7TrPCAG7tVtIjC0";
-const UNSPLASH_URL = `https://api.unsplash.com/photos/random/?count=${countPhotos}&client_id=${apiKey}&orientation=landscape`;
+const UNSPLASH_URL = `https://api.unsplash.com/photos/random/?count=${countPhotos}&client_id=${apiKey}`;
 
 const showLoader = () => {
   loader.style.display = "block";
@@ -58,6 +58,7 @@ const displayPhotos = (photos) => {
 
     const img = document.createElement("img");
     setAttributes(img, {
+      loading: "lazy",
       src: photo.urls.regular,
       alt: photo.alt_description,
       title: photo.alt_description,
@@ -67,8 +68,8 @@ const displayPhotos = (photos) => {
     figure.appendChild(img);
     figure.appendChild(figureCaption);
 
-    // item.appendChild(figure);
-    imageContainer.appendChild(figure);
+    item.appendChild(figure);
+    imageContainer.appendChild(item);
   });
 };
 
@@ -98,6 +99,15 @@ const checkWhenScrollingIsNearToBottomPage = () => {
   }
 };
 
+const detectIfBrowserSupportsLazyLoading = () => {
+  if ("loading" in HTMLImageElement.prototype) {
+    console.log("The browser supports `lazy-loading`...");
+  } else {
+    console.log("`lazy-loading` is not supported by this browser, sorry.");
+  }
+};
+
+detectIfBrowserSupportsLazyLoading();
 getPhotosFromUnsplash();
 
 window.addEventListener("scroll", checkWhenScrollingIsNearToBottomPage);
