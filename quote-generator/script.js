@@ -33,7 +33,6 @@ const validateQuoteTextStyle = (quote, quoteTextSelector) => {
 };
 
 // http://forismatic.com/en/api
-// GET Quote from API
 const getQuoteFromAPI = async () => {
   const proxyURL = "https://cors-anywhere.herokuapp.com/";
   const apiURL =
