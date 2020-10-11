@@ -62,8 +62,9 @@ button:disabled {
 }
 
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #333333; /* Blue */
+  margin-top: 20vh;
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #333333; /* Blue */
   border-radius: 50%;
   width: 20px;
   height: 20px;
