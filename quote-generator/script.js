@@ -54,6 +54,7 @@ const getQuoteFromAPI = async () => {
     hideLoadingSpinner();
   } catch (error) {
     if (retries < MAX_RETRIES) {
+      retries++;
       getQuoteFromAPI();
     }
   }
