@@ -11,6 +11,7 @@ This project contains a bunch of projects made with JavaScript, and the most of 
 - [Lignt Dark Mode](https://codesandtags.github.io/javascript-projects/light-dark-mode/) : The famous light & dark mode is here. This example uses CSS vars, some images taken from undraw and fontawesome icons. The logic to show the light or dak mode is created with JavaScript.
 - [Animated template](https://codesandtags.github.io/javascript-projects/animated-template/) : The famous template where the items appears in the screen.
 - [Navigation Nation](https://codesandtags.github.io/javascript-projects/navigation-nation/) : A super navigation menu including the menu hamburger pattern.
+- [Music Player](https://codesandtags.github.io/javascript-projects/music-player/) : A beautiful and custom music player, using javascript controls instead of native controls.
 
 ## Contact
 
